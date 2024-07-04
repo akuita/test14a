@@ -1,0 +1,51 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "go_to_home": "Go to home",
+    "menu": {
+      "home": "Home",
+      "about": "About",
+      "contact_us": "Contact us",
+      "news": "News"
+    }
+  },
+  "example": {
+    "login": "Login",
+    "logout": "Logout",
+    "next": "Next",
+    "login_success": "Login success!",
+    "logout_success": "Logout success!"
+  },
+  "404": {
+    "title": "Page Not Found",
+    "description": "Description about page not found"
+  },
+  "500": {
+    "title": "System Error",
+    "description": "Description about system error"
+  },
+  "AttendanceSystem": {
+    "logo_alt": "Company Logo",
+    "title": "Attendance System",
+    "time_tracking": "Time tracking",
+    "time_tracking_alt": "Time tracking icon",
+    "time_sheet": "Time sheet",
+    "time_sheet_alt": "Time sheet icon",
+    "profile_alt": "Profile icon",
+    "user_info": "{{name}} - {{role}}",
+    "current_date": "{{date}}",
+    "check_in": "Check in",
+    "checked_out": "Checked out"
+  },
+  "Button": {
+    "check_in": "Check in",
+    "checked_out": "Checked out"
+  },
+  "Modal": {
+    "close": "Close"
+  },
+  "Toast": {
+    "success": "Action successful",
+    "error": "Action failed"
+  }
+}
