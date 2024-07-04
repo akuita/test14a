@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { EmployeeService } from '../employee/employee.service';
 import { SystemInterface } from '../../entities/system_interfaces';
 import { BaseRepository } from '../../shared/base.repository';
 
@@ -7,7 +8,7 @@ import { BaseRepository } from '../../shared/base.repository';
 export class SystemInterfacesService {
   constructor(
     @InjectRepository(SystemInterface)
-    private systemInterfacesRepository: BaseRepository<SystemInterface>,
+    private systemInterfacesRepository: BaseRepository<SystemInterface>, private employeeService: EmployeeService
   ) {}
 
   async updateCheckInButtonState(employeeId: number): Promise<{ confirmation: string }> {
@@ -19,6 +20,12 @@ export class SystemInterfacesService {
           { column: 'employee_id', value: employeeId, operator: 'EQUAL' },
         ],
       });
+
+      // Validate employee check-in status
+      const validation = await this.employeeService.validateEmployeeCheckIn(employeeId);
+      if (!validation.isValid) {
+        throw new Error(validation.message);
+      }
 
       // Update the state of the "Check in" button to disabled
       await this.systemInterfacesRepository.updateOne({
