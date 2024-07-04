@@ -1,0 +1,27 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "go_to_home": "Go to home",
+    "menu": {
+      "home": "Home",
+      "about": "About",
+      "contact_us": "Contact us",
+      "news": "News"
+    }
+  },
+  "example": {
+    "login": "Login",
+    "logout": "Logout",
+    "next": "Next",
+    "login_success": "Login success!",
+    "logout_success": "Logout success!"
+  },
+  "404": {
+    "title": "Page Not Found",
+    "description": "Description about page not found"
+  },
+  "500": {
+    "title": "System Error",
+    "description": "Description about system error"
+  }
+}

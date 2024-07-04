@@ -1,0 +1,83 @@
+@layer button {
+  .link_tag {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .link_tag:hover {
+    text-decoration: none;
+  }
+
+  .button {
+    border: 1px solid transparent;
+    color: rgba(0, 0, 0, 0.85);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    padding: 4px 15px;
+    cursor: pointer;
+    line-height: 1.5715;
+    display: block;
+  }
+
+  .primary {
+    color: #fff;
+    border-color: #1890ff;
+    background: #1890ff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+  }
+
+  .ghost {
+    border-color: #d9d9d9;
+    background-color: transparent;
+  }
+
+  .dashed {
+    border-style: dashed;
+    border-color: #d9d9d9;
+    background-color: transparent;
+  }
+
+  .link {
+    color: #1890ff;
+    background-color: transparent;
+  }
+
+  .text {
+    border-color: transparent;
+    background: transparent;
+    box-shadow: none;
+  }
+}
+
+.primary:hover,
+.primary:focus {
+  color: #fff;
+  border-color: #40a9ff;
+  background: #40a9ff;
+}
+
+.ghost:hover,
+.ghost:focus {
+  color: #40a9ff;
+  border-color: #40a9ff;
+  background: transparent;
+}
+
+.text:hover,
+.text:focus {
+  background: rgba(0, 0, 0, 0.018);
+  border-color: transparent;
+}
+
+.dashed:hover,
+.dashed:focus {
+  color: #40a9ff;
+  border-color: #40a9ff;
+  background: #fff;
+}
+
+.link:hover,
+.link:focus {
+  color: #40a9ff;
+}

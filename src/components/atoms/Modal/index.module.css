@@ -1,0 +1,36 @@
+.Overlay {
+  background-color: rgba(29, 37, 49, 0.7);
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 99999;
+}
+
+.Modal {
+  overflow: hidden;
+  background-color: #fff;
+  border: 0;
+  font-size: 16px;
+  left: 50%;
+  min-width: 500px;
+  max-height: calc(100vh - 100px);
+  position: absolute;
+  outline: 0px;
+  transform: translate(-50%);
+  transition: all 0.5s ease-in-out;
+}
+
+.ModalTop {
+  top: 0px;
+}
+
+.ModalDefault {
+  top: 100px;
+}
+
+.ModalCenter {
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

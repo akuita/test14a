@@ -1,0 +1,21 @@
+.page_container {
+  flex-direction: column;
+  overflow-y: auto;
+  min-height: 100vh;
+  display: flex;
+}
+.container {
+  background-color: rgb(255, 255, 255);
+  flex: 1;
+  min-height: 50px;
+  min-width: 50px;
+  width: 100%;
+  padding: 20px;
+}
+.center_card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
