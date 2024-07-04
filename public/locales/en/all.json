@@ -23,5 +23,22 @@
   "500": {
     "title": "System Error",
     "description": "Description about system error"
+  },
+  "AttendanceSystem": {
+    "userIcon": "User Icon",
+    "userName": "Jack Daniel - Developer",
+    "calendarIcon": "Calendar Icon",
+    "date": "Wednesday, 27 September, 2023",
+    "time": "08:30:20",
+    "checkIn": "Check in",
+    "checkedOut": "Checked out"
+  },
+  "button": {
+    "checkIn": "Check in",
+    "checkedOut": "Checked out"
+  },
+  "modal": {
+    "close": "Close",
+    "save": "Save"
   }
 }

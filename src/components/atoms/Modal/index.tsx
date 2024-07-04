@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactModal from 'react-modal'
+import { useTranslation } from 'next-i18next' // Import useTranslation hook
 import clsx from 'clsx'
 
 import styles from './index.module.css'
@@ -30,8 +31,11 @@ type ModalState = {
 }
 
 export class ModalComponent extends React.PureComponent<ModalProps, ModalState> {
+  private t: any // Added type for t
+
   constructor(props: ModalProps) {
     super(props)
+    this.t = useTranslation() // Initialize the translation hook
     this.state = DEFAULT_STATES
   }
 
@@ -62,7 +66,6 @@ export class ModalComponent extends React.PureComponent<ModalProps, ModalState> 
     })
   }
 
-  // eslint-disable-next-line react/no-unused-class-component-methods
   hide = (id?: string) => {
     const { modals } = this.state
     let newModals = modals
@@ -82,7 +85,6 @@ export class ModalComponent extends React.PureComponent<ModalProps, ModalState> 
     })
   }
 
-  // eslint-disable-next-line react/no-unused-class-component-methods
   show = (component: React.ReactNode, options: ModalOptions) => {
     const { modals } = this.state
     const modalId = `${Date.now()}`
