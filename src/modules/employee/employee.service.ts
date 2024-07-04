@@ -20,11 +20,11 @@ export class EmployeeService {
       return { isValid: false, message: 'Employee is not registered.' };
     }
 
-    const today = dayjs().startOf('day').toDate();
+    const today = dayjs().startOf('day');
     const checkInRecord = await this.attendanceRecordRepository.findOne({
       where: {
         employee_id: employeeId,
-        check_in_time: today,
+        check_in_time: dayjs(today).format('YYYY-MM-DD'),
       },
     });
 

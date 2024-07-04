@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { DateTimeUtil } from 'src/shared/utils/date-time.util';
 import { Repository } from 'typeorm';
 import { AttendanceRecord } from 'src/entities/attendance_records';
 import { serialize } from 'src/utils/transform';
@@ -11,23 +12,15 @@ export class AttendanceService {
     private attendanceRepository: Repository<AttendanceRecord>,
   ) {}
 
-  async recordEmployeeCheckIn(employeeId: number): Promise<{ message: string }> {
-    const permissibleCheckInHours = { start: '08:00', end: '17:00' }; // Assuming these are the permissible check-in hours
+  async recordEmployeeCheckIn(employeeId: number): Promise<{ message: string, check_in_time: string }> {
     const currentTime = new Date();
-    const currentHour = currentTime.getHours();
-    const currentMinutes = currentTime.getMinutes();
-    const startTime = permissibleCheckInHours.start.split(':');
-    const endTime = permissibleCheckInHours.end.split(':');
 
-    // Check if current time is within permissible check-in hours
-    if (
-      currentHour < parseInt(startTime[0]) ||
-      (currentHour === parseInt(startTime[0]) && currentMinutes < parseInt(startTime[1])) ||
-      currentHour > parseInt(endTime[0]) ||
-      (currentHour === parseInt(endTime[0]) && currentMinutes > parseInt(endTime[1]))
-    ) {
-      throw new Error('Check-in is not allowed at this time.');
+    // Use DateTimeUtil to check if current time is within permissible check-in hours
+    if (!DateTimeUtil.isWithinCheckInHours(currentTime)) {
+      throw new Error('Check-in not allowed at this time.');
     }
+
+    // Check if employee is registered and has not checked in today in the database logic here...
 
     // Create a new attendance record
     const attendanceRecord = this.attendanceRepository.create({
@@ -40,6 +33,9 @@ export class AttendanceService {
     await this.attendanceRepository.save(attendanceRecord);
 
     // Return a success message confirming the check-in
-    return { message: 'Check-in was successful.' };
+    return {
+      message: 'Check-in successful.',
+      check_in_time: currentTime.toISOString(),
+    };
   }
 }
